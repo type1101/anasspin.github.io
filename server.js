@@ -5,7 +5,11 @@ const { MongoClient, ObjectId } = require('mongodb'); // Ajout de ObjectId pour 
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://type1101.github.io/anasspin.github.io/', // Ton adresse GitHub Pages vue dans l'erreur
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 app.use(express.static(__dirname));
 
