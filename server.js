@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-    origin: 'https://type1101.github.io/anasspin.github.io/', // Ton adresse GitHub Pages vue dans l'erreur
+    origin: 'https://type1101.github.io', // Ton adresse GitHub Pages vue dans l'erreur
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
