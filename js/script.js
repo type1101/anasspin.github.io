@@ -132,7 +132,7 @@ async function handleSignup(e) {
     const userData = { username, email, password: pass };
 
     try {
-        const response = await fetch('http://localhost:3000/register', {
+        const response = await fetch('https://anasspin-github-io.onrender.com/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
@@ -187,7 +187,7 @@ async function handleLogin(e) {
     const password = passInput.value;
 
     try {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('https://anasspin-github-io.onrender.com/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -238,7 +238,7 @@ async function changeAvatar(seed) {
     const user = JSON.parse(localStorage.getItem('currentUser'));
 
     try {
-        const response = await fetch('http://localhost:3000/api/update-avatar', {
+        const response = await fetch('https://anasspin-github-io.onrender.com/api/update-avatar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId: user._id || user.id, avatarUrl })
@@ -702,7 +702,7 @@ async function handlePasswordUpdate() {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/update-password', {
+        const response = await fetch('https://anasspin-github-io.onrender.com/api/update-password', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId: user._id || user.id, oldPassword, newPassword })

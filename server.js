@@ -87,7 +87,7 @@ async function startServer() {
     app.post('/api/update-avatar', async (req, res) => {
         try {
             const { userId, avatarUrl } = req.body;
-            const db = client.db("NeoSpin");
+            const db = client.db("neospin");
             const users = db.collection("users");
 
             await users.updateOne(
