@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoSpin | Mines Pro</title>
+    <link rel="stylesheet" href="css/mines.css" />
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="game-page">
+    <div id="notification-container" style="position: fixed; top: 20px; right: 20px; z-index: 10000; pointer-events: none;"></div>
+    <header class="game-header-pro">
+      <div class="logo" style="font-weight: 900; color: white">
+        NEO<span style="color: #00e701">SPIN</span>
+      </div>
+      <div class="wallet-display">
+        <span class="wallet-label">BALANCE</span>
+        <div class="balance-container">
+          <span id="userBalance">0.00</span>
+          <span class="currency-symbol">€</span>
+        </div>
+      </div>
+    <a href="index.html" class="btn-back-home">
+         Accueil
+    </a>
+    </header>
+
+    <main class="game-view-centered">
+      <div class="stake-card-master">
+        <aside class="side-panel-pro">
+          <div class="control-group">
+            <label>Bet Amount EUR</label>
+            <div class="input-wrapper-stake">
+              <input
+                type="number"
+                id="betAmountInput"
+                value="1.00"
+                step="0.01"
+              />
+              <div class="addon-btns">
+                <button class="half-btn">½</button>
+                <button class="double-btn">2x</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Mines</label>
+            <div class="select-wrapper-custom">
+              <select id="mineSelect">
+                <option value="1">1</option>
+                <option value="3" selected>3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="24">24</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Gems</label>
+            <div class="input-wrapper-stake">
+              <input type="text" id="gemsCountDisplay" value="22" readonly />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label
+              >Total profit (<span id="currentMultDisplay">1.00x</span>)</label
+            >
+            <div class="input-wrapper-stake">
+              <input type="text" id="profitInput" value="0.00" readonly />
+            </div>
+          </div>
+
+          <button id="playBtnMines" class="main-bet-btn">Bet</button>
+          <p id="jetxStatus"></p>
+        </aside>
+
+        <section class="grid-viewport">
+          <div id="minesGrid" class="mines-grid-premium"></div>
+        </section>
+      </div>
+    </main>
+
+
+    <div id="loginModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal" onclick="window.location.href='index.html'"
+          >&times;</span
+        >
+        <div class="modal-header">
+          <h2>SE <span>CONNECTER</span></h2>
+          <p>Connectez-vous pour accéder au jeu.</p>
+        </div>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="email@exemple.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input
+              type="password"
+              id="loginPass"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-signup-submit">CONNEXION</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/mines.js"></script>
+  </body>
+</html>

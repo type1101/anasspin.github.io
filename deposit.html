@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoSpin | Crypto Vault Premium</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/deposit.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-deep">
+    <header id="main-header" class="header-glass">
+      <a href="index.html" id="Logoclick" class="logo">NEO<span>SPIN</span></a>
+      <div class="header-auth-info" id="headerAuth"></div>
+    </header>
+
+    <div class="ultra-container">
+      <div class="bonus-hero-card">
+        <div class="bonus-glow"></div>
+        <div class="bonus-content-flex">
+          <div class="bonus-text-group">
+            <span class="bonus-badge-top">OFFRE DE BIENVENUE</span>
+            <h1>Doublez votre capital <span>+100%</span></h1>
+            <p>
+              Déposez jusqu'à 300€ et recevez 600€ de crédits de jeu
+              instantanément.
+            </p>
+          </div>
+          <div class="bonus-timer">
+            <i class="fas fa-clock"></i> Offre limitée
+          </div>
+        </div>
+      </div>
+
+      <main class="main-deposit-grid">
+        <section class="deposit-config-card">
+          <div class="card-label">1. CHOISIR LA MÉTHODE</div>
+          <div class="crypto-selector-premium">
+            <button class="coin-item active" data-coin="btc">
+              <img
+                src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg"
+                alt="BTC"
+              />
+              <span>Bitcoin</span>
+            </button>
+            <button class="coin-item" data-coin="eth">
+              <img
+                src="https://cryptologos.cc/logos/ethereum-eth-logo.svg"
+                alt="ETH"
+              />
+              <span>Ethereum</span>
+            </button>
+            <button class="coin-item" data-coin="usdt">
+              <img
+                src="https://cryptologos.cc/logos/tether-usdt-logo.svg"
+                alt="USDT"
+              />
+              <span>USDT</span>
+            </button>
+          </div>
+
+          <div class="conversion-simulator">
+            <div class="card-label">2. SIMULATEUR DE MONTANT</div>
+            <div class="sim-input-box">
+              <input
+                type="number"
+                id="euroAmount"
+                placeholder="Montant à envoyer..."
+                step="10"
+              />
+              <span>€</span>
+            </div>
+            <div class="sim-result">
+              <div class="res-line">
+                Montant à envoyer : <strong id="cryptoToView">0.00000000</strong> <span id="activeCoin">BTC</span>
+              </div>
+              <div class="res-line bonus-line">
+                Total crédité (+100%) : <strong id="valTotal">0.00</strong> €
+              </div>
+              <span id="valEur" style="display:none">0</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="deposit-payment-card">
+          <div class="card-label">3. TRANSACTION SÉCURISÉE</div>
+
+          <div class="payment-main-flex">
+            <div class="qr-section-pro">
+              <div class="qr-box-glass">
+                <i class="fas fa-qrcode"></i>
+              </div>
+              <div class="network-tag-premium">
+                Réseau : <span id="networkName">Bitcoin</span>
+              </div>
+            </div>
+
+            <div class="address-section-pro">
+              <div class="address-header">
+                <label>VOTRE ADRESSE DE RÉCEPTION UNIQUE</label>
+                <div class="premium-copy-box">
+                  <input
+                    type="text"
+                    id="btcAddress"
+                    value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
+                    readonly
+                  />
+                  <button id="copyBtn"><i class="fas fa-copy"></i></button>
+                </div>
+              </div>
+
+              <div class="security-badges-row">
+                <div class="sec-item-v6">
+                  <i class="fas fa-lock"></i> AES-256 Bits
+                </div>
+                <div class="sec-item-v6">
+                  <i class="fas fa-bolt"></i> Prioritaire
+                </div>
+              </div>
+              <div class="confirmation-zone">
+                <button id="confirmDepositBtn" class="btn-confirm-main">
+                  <i class="fas fa-check-circle"></i> J'AI ENVOYÉ LES FONDS
+                </button>
+
+                <div
+                  id="depositStatus"
+                  class="status-box"
+                  style="display: none"
+                >
+                  <div class="spinner"></div>
+                  <p class="status-text">
+                    Recherche de la transaction sur le réseau...
+                  </p>
+                  <p class="status-subtext">
+                    Cela peut prendre entre 1 et 3 minutes
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="danger-notice-v6">
+            <i class="fas fa-exclamation-triangle"></i>
+            N'envoyez que des <span id="coinWarning">BTC</span> sur cette
+            adresse. Le dépôt est crédité après 3 confirmations.
+          </div>
+        </section>
+      </main>
+
+      <div class="center-footer">
+        <a href="index.html" class="btn-back-lobby"
+          ><i class="fas fa-chevron-left"></i> Retourner au Lobby</a
+        >
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/deposit.js"></script>
+  </body>
+</html>

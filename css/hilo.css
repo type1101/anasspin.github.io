@@ -1,0 +1,153 @@
+/* --- Mise en page LARGE --- */
+.game-view-centered {
+    max-width: 1200px !important; /* On élargit la zone de vue */
+    width: 95%;
+    margin: 40px auto;
+}
+
+.stake-card-master {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Panneau de gauche fixe, droite flexible */
+    min-height: 650px; /* Plus de hauteur pour respirer */
+    background: #0f1724;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hilo-area {
+    background: #070b13 !important; /* Fond plus sombre pour faire ressortir la carte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hilo-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* Plus d'espace entre l'historique et la carte */
+    width: 100%;
+}
+
+.current-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Espace entre la carte et le label "CARTE ACTUELLE" */
+}
+
+.current-card-container .card-pro {
+    width: 120px;
+    height: 170px;
+    font-size: 1.8rem;
+}
+
+.label-pro {
+    color: #94a3b8;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.previous-cards {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: auto;
+    flex-direction: row-reverse; /* Les dernières cartes arrivent à droite */
+    justify-content: flex-start;
+}
+
+.previous-cards .card-pro {
+    width: 50px;
+    height: 70px;
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+.action-hilo {
+    background: #2f4553 !important;
+    color: white !important;
+    box-shadow: 0 4px 0 #1a2c38 !important;
+    font-size: 0.9rem !important;
+}
+
+/* Animation de la carte qui arrive */
+@keyframes cardIn {
+    0% { transform: translateX(100px) rotateY(90deg); opacity: 0; }
+    100% { transform: translateX(0) rotateY(0deg); opacity: 1; }
+}
+
+/* Animation de la carte qui part dans l'historique */
+.card-to-history {
+    animation: moveToHistory 0.5s forwards ease-in-out;
+}
+
+@keyframes moveToHistory {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.4) translateY(-150px); opacity: 0; }
+}
+
+/* Style dynamique des boutons Higher/Lower pour la clarté */
+.action-hilo span {
+    font-weight: 900;
+    color: var(--accent-neon);
+}
+
+.hilo-table {
+    perspective: 1000px; /* Nécessaire pour l'effet 3D de rotation */
+}
+
+#currentCard {
+    width: 160px;
+    height: 230px;
+    background: #1a2c38;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Bordure discrète par défaut */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: all 0.3s ease; /* Important pour l'animation du contour */
+}
+
+
+
+
+#currentCard:empty::after {
+    content: 'N';
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.05);
+    font-weight: 900;
+}
+
+/* Badge de profit en temps réel sur le bouton Cashout */
+#cashoutBtn {
+    transition: all 0.2s;
+    font-size: 1.1rem;
+    border: none;
+    box-shadow: 0 4px 0 #b48a04;
+}
+
+#cashoutBtn:hover {
+    background: #ffe16a !important;
+}
+
+/* Forcer l'affichage des contours sur Hi-Lo */
+#currentCard.winner-glow {
+    border: 3px solid #00e701 !important;
+    box-shadow: 0 0 20px rgba(0, 231, 1, 0.8) !important;
+}
+
+#currentCard.loser-glow {
+    border: 3px solid #ef4444 !important;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8) !important;
+}

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoSpin | Casino Premium</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div
+      id="notification-container"
+      style="
+        position: fixed;
+        top: 80px;
+        left: 20px;
+        z-index: 10000;
+        pointer-events: none;
+      "
+    ></div>
+
+    <header class="header-glass">
+      <div class="logo">NEO<span>SPIN</span></div>
+      <nav>
+        <a href="#JeuxPopulaires">Tendances</a>
+        <a href="#LiveCasino">Live Casino</a>
+        <a href="#Arcades">Arcades</a>
+      </nav>
+      <div class="auth-buttons">
+        <button class="btn-login" onclick="openModal('login')">
+          Connexion
+        </button>
+        <button class="btn-signup" onclick="openSignupModal()">
+          S'inscrire
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-banner">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="badge-promo">OFFRE EXCLUSIVE</div>
+        <h1>BONUS DE BIENVENUE</h1>
+        <div class="offer-amount">100% JUSQU'À <span>300€</span></div>
+        <p>Doublez votre premier dépôt dès maintenant sur NeoSpin Originals.</p>
+        <button class="btn-cta" onclick="handleBonusClick()">
+          RÉCUPÉRER MON BONUS
+        </button>
+      </div>
+    </section>
+
+    <section class="games-section" id="JeuxPopulaires">
+      <div class="section-title" >
+        <div class="dot"></div>
+        <h2>Jeux Populaires</h2>
+      </div>
+
+      <div class="main-games-layout">
+        <a href="mines.html" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/newMINES.jpg" alt="Mines Game" />
+          <div class="game-info">
+            <span class="game-title">Mines</span>
+            <span class="game-provider">NeoSpin Original</span>
+          </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="jetx.html" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/newCRASH.jpg" alt="JetX Game" />
+          <div class="game-info">
+            <span class="game-title">JetX</span>
+            <span class="game-provider">NeoSpin Original</span>
+          </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="blackjack.html" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/newBJ.jpg" alt="Blackjack Game" />
+          <div class="game-info">
+              <span class="game-title">Blackjack 21</span>
+              <span class="game-provider">NeoSpin Original</span>
+            </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="hilo.html" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/newHILO.jpg" alt="Hi-Lo Game" />
+          <div class="game-info">
+              <span class="game-title">Hi-Lo</span>
+              <span class="game-provider">NeoSpin Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+    </section>
+
+
+    <section class="games-section" id="LiveCasino">
+        <div class="section-title">
+            <div class="dot" style="background: #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);"></div>
+            <h2>Live <span style="color: #ef4444;">Casino</span></h2>
+        </div>
+
+        <div class="main-games-layout">
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/roulettelive.jpg" alt="Lightning Roulette">
+                <div class="live-badge"><span class="live-dot"></span> 1,245 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">Lightning Roulette</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/crazytime.jpg" alt="Crazy Time">
+                <div class="live-badge"><span class="live-dot"></span> 3,890 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">Crazy Time</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/blackjacklive.png" alt="Blackjack Live">
+                <div class="live-badge"><span class="live-dot"></span> 542 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">Blackjack VIP</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="game-category-section" id="Arcades" style="padding: 60px 8%; border-top: 1px solid var(--glass-border);">
+      <div class="category-header" style="text-align: center; margin-bottom: 40px;">
+        <h2 class="category-title" style="font-weight: 900; color: white; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;">
+            ARCADE <span style="color: #00e701;">CLASSICS</span>
+        </h2>
+        <p style="color: #b1bad3; font-size: 0.9rem; margin-top: 10px;">Machines instantanées et mini-jeux originaux</p>
+      </div>
+
+      <div class="main-games-layout">
+        
+        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+          <img src="img/jeuxarcades/Slots1.png" alt="Slots Arcade" class="arcade-game-img">
+          <div class="arcade-overlay">Jouer à Slots Arcade</div>
+        </a>
+
+        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+          <img src="img/jeuxarcades/DiceArcade.png" alt="Dice Arcade" class="arcade-game-img">
+          <div class="arcade-overlay">Jouer à Dice Arcade</div>
+        </a>
+
+        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+          <img src="img/jeuxarcades/PlinkoArcade.png" alt="Plinko Arcade" class="arcade-game-img">
+          <div class="arcade-overlay">Jouer à Plinko Arcade</div>
+        </a>
+
+        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+          <img src="img/jeuxarcades/LimboArcade.png" alt="Limbo Arcade" class="arcade-game-img">
+          <div class="arcade-overlay">Jouer à Limbo Arcade</div>
+        </a>
+
+        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+          <img src="img/jeuxarcades/KenoArcade.png" alt="Keno Arcade" class="arcade-game-img">
+          <div class="arcade-overlay">Jouer à Keno Arcade</div>
+        </a>
+
+        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+          <img src="img/jeuxarcades/RouletteArcade.png" alt="Roulette Arcade" class="arcade-game-img">
+          <div class="arcade-overlay">Jouer à Roulette Arcade</div>
+        </a>
+
+
+
+      </div>
+    </section>
+
+    <div id="signupModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeSignupModal()">&times;</span>
+        <div class="modal-header">
+          <h2>CRÉER UN <span>COMPTE</span></h2>
+          <p>Rejoignez NeoSpin et commencez à gagner.</p>
+        </div>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+          <div class="form-group">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="regUser" placeholder="Pseudo" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="regEmail"
+              placeholder="email@exemple.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <div style="position: relative">
+              <input
+                type="password"
+                id="regPass"
+                placeholder="••••••••"
+                required
+              />
+              <i
+                class="fas fa-eye"
+                onclick="togglePasswordVisibility('regPass', this)"
+                style="
+                  position: absolute;
+                  right: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+                  color: #94a3b8;
+                "
+              ></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirmer le mot de passe</label>
+            <div style="position: relative">
+              <input
+                type="password"
+                id="regConfirmPass"
+                placeholder="••••••••"
+                required
+              />
+              <i
+                class="fas fa-eye"
+                onclick="togglePasswordVisibility('regConfirmPass', this)"
+                style="
+                  position: absolute;
+                  right: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+                  color: #94a3b8;
+                "
+              ></i>
+            </div>
+            <p id="passError" class="error-msg">
+              Les mots de passe ne correspondent pas.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Pays</label>
+            <div class="select-wrapper">
+              <select id="regCountry" required>
+                <option value="" disabled selected>Choisir un pays</option>
+                <optgroup label="Europe">
+                  <option value="FR">France</option>
+                  <option value="BE">Belgique</option>
+                  <option value="CH">Suisse</option>
+                  <option value="LU">Luxembourg</option>
+                  <option value="MC">Monaco</option>
+                  <option value="ES">Espagne</option>
+                  <option value="IT">Italie</option>
+                  <option value="PT">Portugal</option>
+                </optgroup>
+                <optgroup label="Afrique">
+                  <option value="DZ">Algérie</option>
+                  <option value="MA">Maroc</option>
+                  <option value="TN">Tunisie</option>
+                  <option value="SN">Sénégal</option>
+                  <option value="CI">Côte d'Ivoire</option>
+                  <option value="ML">Mali</option>
+                  <option value="CM">Cameroun</option>
+                  <option value="RE">Réunion</option>
+                </optgroup>
+                <optgroup label="Amériques">
+                  <option value="CA">Canada</option>
+                  <option value="US">États-Unis</option>
+                  <option value="BR">Brésil</option>
+                  <option value="MX">Mexique</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Date de naissance</label>
+            <input type="date" id="regDob" required />
+            <p id="ageError" class="error-msg">
+              Vous devez avoir 18 ans minimum.
+            </p>
+          </div>
+          <button type="submit" class="btn-signup-submit">
+            S'INSCRIRE MAINTENANT
+          </button>
+        </form>
+        <p class="modal-footer">Déjà inscrit ? <a href="#">Se connecter</a></p>
+      </div>
+    </div>
+
+    <div id="loginModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('login')">&times;</span>
+        <div class="modal-header">
+          <h2>SE <span>CONNECTER</span></h2>
+          <p>Heureux de vous revoir sur NeoSpin.</p>
+        </div>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="email@exemple.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-signup-submit">CONNEXION</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="accountModal" class="modal" style="display: none">
+      <div class="modal-content account-modal-content">
+        <span class="close-btn" onclick="closeModal('account')">&times;</span>
+
+        <div class="account-layout">
+          <div class="account-sidebar">
+            <h3>Mon Compte</h3>
+            <button
+              class="tab-btn active"
+              onclick="switchTab(event, 'profile-tab')"
+            >
+              <i class="fas fa-user"></i> Profil
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'stats-tab')">
+              <i class="fas fa-chart-line"></i> Statistiques
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'security-tab')">
+              <i class="fas fa-shield-alt"></i> Sécurité
+            </button>
+          </div>
+
+          <div class="account-body">
+            <div id="profile-tab" class="tab-content active">
+              <h2>Informations Personnelles</h2>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                  margin-bottom: 30px;
+                  background: rgba(255, 255, 255, 0.03);
+                  padding: 15px;
+                  border-radius: 12px;
+                "
+              >
+                <img
+                  id="current-avatar"
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lucky"
+                  style="
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    border: 2px solid #00e701;
+                  "
+                />
+                <div>
+                  <p
+                    style="
+                      margin: 0 0 10px 0;
+                      font-size: 0.9rem;
+                      color: #64748b;
+                    "
+                  >
+                    Choisir un avatar :
+                  </p>
+                  <div style="display: flex; gap: 10px">
+                    <img
+                      onclick="changeAvatar('Lucky')"
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lucky"
+                      class="avatar-option"
+                      style="width: 40px; cursor: pointer; border-radius: 50%"
+                    />
+                    <img
+                      onclick="changeAvatar('Felix')"
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                      class="avatar-option"
+                      style="width: 40px; cursor: pointer; border-radius: 50%"
+                    />
+                    <img
+                      onclick="changeAvatar('Aria')"
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aria"
+                      class="avatar-option"
+                      style="width: 40px; cursor: pointer; border-radius: 50%"
+                    />
+                    <img
+                      onclick="changeAvatar('Jack')"
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jack"
+                      class="avatar-option"
+                      style="width: 40px; cursor: pointer; border-radius: 50%"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="info-group">
+                <label>Nom d'utilisateur</label>
+                <input type="text" id="acc-username" readonly />
+              </div>
+              <div class="info-group">
+                <label>Email</label>
+                <input type="text" id="acc-email" readonly />
+              </div>
+              <div class="info-group">
+                <label>Date d'inscription</label>
+                <p id="acc-date" style="color: #64748b">
+                  Chargement des infos...
+                </p>
+              </div>
+            </div>
+
+            <div id="stats-tab" class="tab-content">
+              <h2>Tes Performances</h2>
+              <p style="color: #64748b">
+                Statistiques en cours de synchronisation...
+              </p>
+            </div>
+
+            <div id="security-tab" class="tab-content">
+              <h2>Sécurité du compte</h2>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.05);
+                  padding: 15px;
+                  border-radius: 10px;
+                  margin-bottom: 25px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <div>
+                  <h4 style="margin: 0; color: white">Mode Discret</h4>
+                  <p style="margin: 0; font-size: 0.8rem; color: #64748b">
+                    Masquer votre solde sur l'interface
+                  </p>
+                </div>
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="hideBalanceToggle"
+                    onchange="toggleBalancePrivacy()"
+                  />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div
+                class="password-form"
+                style="display: flex; flex-direction: column; gap: 15px"
+              >
+                <div class="info-group">
+                  <label>Ancien mot de passe</label>
+                  <input type="password" id="old-pass" placeholder="••••••••" />
+                </div>
+                <div class="info-group">
+                  <label>Nouveau mot de passe</label>
+                  <input type="password" id="new-pass" placeholder="••••••••" />
+                </div>
+                <button
+                  onclick="handlePasswordUpdate()"
+                  class="btn-action"
+                  style="
+                    background: #00e701;
+                    color: black;
+                    font-weight: bold;
+                    padding: 12px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                  "
+                >
+                  Mettre à jour le mot de passe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+    <div id="cashierModal" class="modal-overlay">
+      <div class="modal-content cashier-content">
+        
+        <span class="close-modal" onclick="closeModal('cashier')">&times;</span>
+
+        <div class="cashier-header">
+          <button class="cashier-tab active" onclick="switchCashierTab('deposit')">
+            <i class="fas fa-arrow-down"></i> Dépôt
+          </button>
+          <button class="cashier-tab" onclick="switchCashierTab('withdraw')">
+            <i class="fas fa-arrow-up"></i> Retrait
+          </button>
+        </div>
+
+        <div id="deposit-section" class="cashier-body active">
+          <h3>Dépôt Rapide</h3>
+          <p style="margin-bottom: 10px;">Solde actuel : <strong class="user-balance">0.00</strong> €</p>
+          
+          <div class="cashier-crypto-selector" style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button class="coin-item-mini active" onclick="updateCashierCoin('btc')" data-coin="btc">
+              <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg" width="18"> BTC
+            </button>
+            <button class="coin-item-mini" onclick="updateCashierCoin('eth')" data-coin="eth">
+              <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg" width="18"> ETH
+            </button>
+            <button class="coin-item-mini" onclick="updateCashierCoin('usdt')" data-coin="usdt">
+              <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" width="18"> USDT
+            </button>
+          </div>
+
+          <div class="crypto-address-box">
+            <label>Votre adresse <span id="cashier-coin-name">Bitcoin (BTC)</span></label>
+            <div class="copy-input">
+              <input type="text" value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" readonly id="btc-address-cashier">
+              <button onclick="copyToClipboard('btc-address-cashier')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <p id="cashier-network-warning" style="font-size: 0.65rem; color: #64748b; margin-top: 8px; margin-bottom: 0;">
+              Réseau : <strong>Bitcoin</strong>
+            </p>
+          </div>
+
+          <div class="deposit-info">
+            <i class="fas fa-check-circle"></i>
+            <span>Validation sécurisée après confirmation blockchain.</span>
+          </div>
+        </div>
+
+        <div id="withdraw-section" class="cashier-body">
+          <h3>Retrait Rapide</h3>
+          <p>Récupérez vos gains vers votre portefeuille externe. Traitement sécurisé.</p>
+
+          <div class="cashier-crypto-selector" style="display: flex; gap: 10px; margin-bottom: 25px;">
+            <button class="coin-item-mini-withdraw active" onclick="updateWithdrawCoin('btc')" data-coin="btc">
+              <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg" width="18"> BTC
+            </button>
+            <button class="coin-item-mini-withdraw" onclick="updateWithdrawCoin('eth')" data-coin="eth">
+              <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg" width="18"> ETH
+            </button>
+            <button class="coin-item-mini-withdraw" onclick="updateWithdrawCoin('usdt')" data-coin="usdt">
+              <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" width="18"> USDT
+            </button>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:#64748b;">Montant (€)</label>
+            <input type="number" id="withdraw-amount" placeholder="Min. 20€" style="width:100%; background: #070b13; border: 1px solid rgba(255,255,255,0.1); padding: 12px; color:white; border-radius:8px;">
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label style="display:block; margin-bottom:5px; font-size:0.8rem; color:#64748b;">Votre adresse <span id="withdraw-coin-name">Bitcoin</span></label>
+            <input type="text" id="withdraw-address" placeholder="Collez votre adresse ici..." style="width:100%; background: #070b13; border: 1px solid rgba(255,255,255,0.1); padding: 12px; color:white; border-radius:8px;">
+            <p id="withdraw-network-hint" style="font-size: 0.65rem; color: #64748b; margin-top: 8px;">
+              Réseau requis : <strong>Bitcoin</strong>
+            </p>
+          </div>
+
+          <button class="btn-signup-submit" onclick="handleWithdrawRequest()" style="width:100%; padding: 15px; font-weight: 800;">
+            CONFIRMER LE RETRAIT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 NeoSpin Casino - +18 | Jouer comporte des risques :
+          endettement, dépendance...
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

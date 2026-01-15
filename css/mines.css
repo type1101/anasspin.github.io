@@ -1,0 +1,261 @@
+/* --- VARIABLES HARMONISÉES AVEC INDEX --- */
+:root {
+    --bg-deep: #070b13;
+    --bg-card: #0f1724;
+    --bg-panel: #1a2c38;
+    --accent-neon: #00ff5f;
+    --accent-gold: #facc15;
+    --text-silver: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --border-ui: #2f4553;
+}
+
+/* --- Dans css/mines.css --- */
+body.game-page {
+    /* Supprime le background-image d'ici ! */
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER PRO (Plus fin, style Glass) --- */
+.game-header-pro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(15, 23, 36, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.wallet-display {
+    background: #070b13;
+    padding: 8px 18px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--glass-border);
+}
+
+.wallet-label { color: var(--text-silver); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+#userBalance { font-weight: 700; color: white; font-size: 1.1rem; }
+.currency-symbol { color: var(--accent-neon); font-weight: 900; }
+
+/* --- LAYOUT CENTRAL --- */
+.game-view-centered {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px 20px;
+}
+
+.stake-card-master {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border);
+}
+
+/* --- SIDEBAR (Contrôles) --- */
+.side-panel-pro {
+    padding: 25px;
+    background: #1a2c38;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.control-group label {
+    display: block;
+    color: var(--text-silver);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.input-wrapper-stake {
+    display: flex;
+    background: #0f212e;
+    border: 2px solid var(--border-ui);
+    border-radius: 6px;
+    height: 45px;
+    transition: border-color 0.2s;
+}
+
+.input-wrapper-stake:focus-within {
+    border-color: var(--text-silver);
+}
+
+.input-wrapper-stake input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0 12px;
+    font-weight: 700;
+    outline: none;
+    width: 60%;
+}
+
+.addon-btns { display: flex; }
+.addon-btns button {
+    background: var(--border-ui);
+    border: none;
+    color: white;
+    width: 45px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: 0.2s;
+}
+.addon-btns button:hover { background: #4a6576; }
+
+.select-wrapper-custom select {
+    width: 100%;
+    background: #0f212e;
+    border: 2px solid var(--border-ui);
+    color: white;
+    height: 45px;
+    border-radius: 6px;
+    padding: 0 10px;
+    font-weight: 700;
+    outline: none;
+}
+
+/* --- BOUTON DE MISE --- */
+.main-bet-btn {
+    width: 100%;
+    background: var(--accent-neon);
+    color: #003314;
+    border: none;
+    padding: 18px;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 0 #009d01;
+    text-transform: uppercase;
+}
+
+.main-bet-btn:hover { background: #1fff20; transform: translateY(-1px); }
+.main-bet-btn:active { transform: translateY(3px); box-shadow: none; }
+.main-bet-btn:disabled { opacity: 0.4; cursor: not-allowed; filter: grayscale(1); }
+
+/* --- GRILLE DE JEU --- */
+.grid-viewport {
+    background: #0f212e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.mines-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: var(--border-ui);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 0 #213743;
+    cursor: pointer;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.cell:hover:not(.revealed) { 
+    background: #3d5564; 
+    transform: translateY(-3px); 
+}
+
+.cell.revealed-star { 
+    background: #071620; 
+    box-shadow: none; 
+    border: 2px solid var(--accent-neon);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.cell.revealed-star::after { content: '💎'; }
+
+.cell.revealed-mine { 
+    background: #1a2c38; 
+    box-shadow: none; 
+    opacity: 0.8;
+}
+.cell.revealed-mine::after { content: '💣'; }
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Style du bouton Accueil */
+.btn-back-home {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.05);
+    color: #b1bad3; /* Couleur texte grise comme sur Stake */
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+.btn-back-home:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-color: var(--accent-neon); /* Utilise ton vert néon */
+    box-shadow: 0 0 15px rgba(0, 231, 1, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn-back-home i {
+    font-size: 0.75rem;
+}
+
+
+/* Supprime les flèches sur Chrome, Safari, Edge et Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Supprime les flèches sur Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+#jetxStatus {
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    min-height: 24px;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoSpin | Blackjack Pro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mines.css" />
+    <link rel="stylesheet" href="css/blackjack.css" />
+  </head>
+  <body class="game-page">
+    <header class="game-header-pro">
+      <div class="logo">NEO<span>SPIN</span></div>
+      <div class="wallet-display">
+        <span class="wallet-label">BALANCE</span>
+        <div class="balance-container">
+          <span id="userBalance">0.00</span
+          ><span class="currency-symbol">€</span>
+        </div>
+      </div>
+      <a href="index.html" class="btn-back-home">Accueil</a>
+    </header>
+
+    <main class="game-view-centered">
+      <div class="stake-card-master">
+        <aside class="side-panel-pro">
+          <div class="control-group">
+            <label>Bet Amount EUR</label>
+            <div class="input-wrapper-stake">
+              <input
+                type="number"
+                id="betAmountInput"
+                value="1.00"
+                step="0.01"
+              />
+              <div class="addon-btns">
+                <button onclick="adjustBet(0.5)">½</button>
+                <button onclick="adjustBet(2)">2x</button>
+              </div>
+            </div>
+          </div>
+
+          <button id="playBtnBJ" class="main-bet-btn">Bet</button>
+
+          <div
+            id="bjActions"
+            style="
+              display: none;
+              flex-direction: column;
+              gap: 10px;
+              margin-top: 10px;
+            "
+          >
+            <button
+              onclick="hit()"
+              class="main-bet-btn"
+              style="
+                background: #2f4553;
+                color: white;
+                box-shadow: 0 4px 0 #1a2c38;
+              "
+            >
+              Hit
+            </button>
+            <button
+              onclick="stand()"
+              class="main-bet-btn"
+              style="
+                background: #2f4553;
+                color: white;
+                box-shadow: 0 4px 0 #1a2c38;
+              "
+            >
+              Stand
+            </button>
+          </div>
+
+          <p
+            id="gameStatus"
+            style="text-align: center; margin-top: 15px; font-weight: 800"
+          ></p>
+        </aside>
+
+        <section class="grid-viewport blackjack-area">
+          <div class="table-content">
+            <div class="dealer-side">
+              <div class="label-pro">DEALER <span id="d-score"></span></div>
+              <div id="dealer-cards" class="hand"></div>
+            </div>
+
+            <div class="player-side">
+              <div id="player-cards" class="hand"></div>
+              <div class="label-pro">PLAYER <span id="p-score"></span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div id="loginModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal" onclick="window.location.href='index.html'"
+          >&times;</span
+        >
+        <div class="modal-header">
+          <h2>SE <span>CONNECTER</span></h2>
+          <p>Connectez-vous pour accéder au jeu.</p>
+        </div>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="email@exemple.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input
+              type="password"
+              id="loginPass"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-signup-submit">CONNEXION</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/blackjack.js"></script>
+  </body>
+</html>

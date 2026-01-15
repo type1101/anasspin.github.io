@@ -1,0 +1,1048 @@
+/* --- CONFIGURATION & VARIABLES FUTURISTES --- */
+:root {
+    --bg-deep: #070b13;        /* Noir spatial */
+    --bg-card: #0f1724;        /* Bleu-gris profond */
+    --accent-neon: #00ff5f;    /* Vert néon électrique */
+    --accent-gold: #facc15;    /* Or pour les offres */
+    --text-silver: #94a3b8;    /* Argent mat */
+    --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 80px; /* Ajuste cette valeur selon la hauteur de ton header */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow-x: hidden;
+
+    background-image: linear-gradient(to right, rgba(7, 11, 19, 0.95) 30%, rgba(7, 11, 19, 0.4) 100%),
+                    url('/img/background/26701996-53f2-4859-9476-4cd2561529b2.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+
+}
+
+/* --- HEADER GLASS --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 6%;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--accent-neon);
+    text-shadow: 0 0 15px rgba(0, 255, 95, 0.3);
+}
+
+nav a {
+    color: var(--text-silver);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+nav a:hover { color: var(--accent-neon); }
+
+/* --- BOUTONS AUTH --- */
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-login {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover { background: rgba(255,255,255,0.05); border-color: white; }
+
+.btn-signup {
+    background: linear-gradient(135deg, var(--accent-neon), #00cc4c);
+    border: none;
+    color: #003314;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 255, 95, 0.2);
+    transition: 0.3s;
+}
+
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #00e701 !important;
+}
+
+/* --- HERO --- */
+.hero-banner {
+    position: relative;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.hero-content h1 { font-size: 3rem; font-weight: 900; line-height: 1.1; margin: 0; }
+
+.offer-amount {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+.offer-amount span {
+    color: var(--accent-gold);
+    text-shadow: 0 0 30px rgba(250, 204, 21, 0.4);
+}
+
+.btn-cta {
+    background: #faca15;
+    color: black;
+    padding: 18px 45px;
+    font-weight: 900;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 73px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-cta:hover {
+    background-color: #facc15 !important; /* Jaune or */
+    color: #000 !important;
+    transform: translateY(-3px); /* Soulèvement léger */
+    box-shadow: 0 10px 20px rgba(250, 204, 21, 0.3); /* Ombre douce */
+}
+
+/* L'animation d'impulsion infinie (pour attirer l'oeil sans être lourd) */
+.btn-cta:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: rgba(250, 204, 21, 0.5);
+    z-index: -1;
+    animation: pulse-gold 1.5s infinite;
+}
+
+@keyframes pulse-gold {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+
+/* --- STYLE STAKE USER MENU --- */
+
+/* --- AJUSTEMENTS STAKE LARGE --- */
+
+/* Suppression de tout style par défaut qui pourrait traîner */
+.user-info {
+    border: 1px solid transparent !important; /* Pas de bordure par défaut */
+}
+
+/* Au survol, on utilise un bleu très légèrement plus clair que le header */
+.user-info:hover {
+    background: rgba(45, 55, 72, 0.3) !important;
+}
+
+/* Le menu déroulant (items) */
+.stake-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: #b1bad3;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.stake-item i {
+    font-size: 1rem;
+    width: 20px;
+    opacity: 0.8;
+}
+
+.stake-item:hover {
+    background: #1a2c38;
+    color: white;
+    padding-left: 25px; /* Petit effet de glissement pro */
+}
+
+/* Pour que l'avatar soit un carré légèrement arrondi (style Stake) */
+#header-avatar {
+    border: none !important;
+}
+
+
+
+/* --- MODAL --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    width: 90%;
+    max-width: 450px;
+    padding: 15px; /* On met le padding à 0 pour laisser le header gérer ses espaces */
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    animation: modalFadeIn 0.3s ease-out;
+    overflow: hidden;
+}
+
+/* --- HEADER DU MENU D'INSCRIPTION AMÉLIORÉ --- */
+.modal-header {
+    text-align: center;
+    padding: 30px 40px 20px 40px; /* Plus d'espace en haut */
+    border-bottom: 1px solid var(--glass-border); /* Ligne de séparation propre */
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.modal-header h2 span {
+    color: var(--accent-neon);
+}
+
+.modal-header p {
+    color: var(--text-silver);
+    font-size: 0.95rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* On ajoute du padding au formulaire pour compenser le retrait du padding du modal-content */
+#signupForm {
+    padding: 0 40px 40px 40px;
+}
+
+@keyframes modalFadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute; /* Se place par rapport au parent .cashier-content */
+    top: 0px;
+    right: 13px;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    z-index: 100; /* Passe au-dessus des onglets */
+    transition: color 0.2s;
+}
+
+
+.close-modal:hover {
+    color: #ef4444; /* Rouge au survol pour plus de clarté */
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; color: white; font-size: 0.85rem; margin-bottom: 8px; font-weight: 600; }
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background: #070b13;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+.form-group input:focus { border-color: var(--accent-neon); }
+
+/* --- RECADRAGE FLECHE SELECTION --- */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 12px 15px;
+    background: #070b13;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select-wrapper::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: var(--text-silver);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 0.75rem;
+    display: none;
+    margin-top: 5px;
+}
+
+.btn-signup-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent-neon);
+    color: #003314;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.modal-footer { text-align: center; margin-top: -10px; padding-bottom: 30px; font-size: 0.85rem; color: var(--text-silver); }
+.modal-footer a { color: var(--accent-neon); text-decoration: none; }
+
+
+
+/* --- modale pour le dashbooooard --- */
+
+/* Style de base des notifications */
+.notification {
+    color: #e2e8f0;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Position de départ pour l'animation (à gauche de l'écran) */
+    transform: translateX(-150%);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: auto;
+}
+
+/* Variantes de couleurs */
+.notification.success {
+    background: rgba(6, 78, 59, 0.85);
+    border-left: 4px solid #10b981;
+}
+
+.notification.error {
+    background: rgba(127, 29, 29, 0.85);
+    border-left: 4px solid #f87171;
+}
+
+/* État quand la notification est visible */
+.notification.show {
+    transform: translateX(0);
+}
+
+
+
+
+
+
+#accountModal {
+    z-index: 9999 !important; /* Pour passer devant tout le reste */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container de la Modal */
+.account-modal-content {
+    width: 900px !important; /* Plus large pour faire "Espace Pro" */
+    height: 600px; /* Hauteur fixe pour éviter les sauts de contenu */
+    max-width: 95vw;
+    padding: 0 !important;
+    overflow: hidden;
+    background: #0f1116 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    position: relative; /* Nécessaire pour placer la croix */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bouton Fermer (Croix) */
+.account-modal-content .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #64748b;
+    cursor: pointer;
+    z-index: 1001; /* Toujours au-dessus */
+    transition: color 0.2s ease;
+}
+
+.account-modal-content .close-btn:hover {
+    color: #ff4444;
+}
+
+/* Layout de la Sidebar et du Corps */
+.account-layout {
+    display: flex;
+    height: 100%; /* Prend toute la place dispo */
+}
+
+.account-sidebar {
+    width: 240px; /* Sidebar un peu plus généreuse */
+    background: #16191e;
+    padding: 40px 15px; /* Plus d'espace en haut */
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.account-body {
+    flex: 1;
+    padding: 40px; /* Plus d'air pour les infos */
+    background: #0f1116;
+    overflow-y: auto; /* Scroll interne si besoin */
+}
+
+/* Titres plus élégants */
+.account-body h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+
+
+/* Style de la Sidebar */
+.account-sidebar {
+    width: 260px;
+    background: #1a1d23;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espace entre les boutons */
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.account-sidebar h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+/* Style des boutons d'onglets (Tabs) */
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #b1bad3; /* Couleur texte Stake */
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+/* Icônes dans les boutons */
+.tab-btn i {
+    font-size: 1.1rem;
+    width: 20px; /* Aligne toutes les icônes verticalement */
+    text-align: center;
+}
+
+/* Effet au survol */
+.tab-btn:hover {
+    background: rgba(47, 51, 65, 0.5);
+    color: white;
+}
+
+/* État Actif (Onglet sélectionné) */
+.tab-btn.active {
+    background: #2f3341;
+    color: #00e701; /* Vert NeoSpin */
+}
+
+.info-group input[readonly] {
+    background: #1a1d23;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #94a3b8; /* Texte légèrement grisé car non modifiable */
+    cursor: default;
+    outline: none;
+}
+
+
+/* Animation pour le bouton Portefeuille */
+.btn-wallet-stake {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-wallet-stake:hover {
+    transform: translateY(-2px); /* Petit soulèvement */
+    background-color: #00ff5f !important; /* Vert encore plus vif */
+    box-shadow: 0 0 20px rgba(0, 231, 1, 0.4); /* Éclat néon */
+    filter: brightness(1.1);
+}
+
+.btn-wallet-stake:active {
+    transform: translateY(0); /* Redescend quand on clique */
+}
+
+
+/* --- CASHIER MODAL STYLE REBORN --- */
+.cashier-content {
+    position: relative; /* INDISPENSABLE pour que la croix se place par rapport à ce cadre */
+    max-width: 500px !important;
+    background: #0f1724 !important;
+    padding: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+}
+
+.cashier-header {
+    display: flex;
+    background: #161f2c; /* Légèrement plus clair que le corps */
+    padding: 8px;
+    gap: 8px;
+}
+
+.cashier-tab {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.cashier-tab.active {
+    color: #00ff5f;
+    background: rgba(0, 255, 95, 0.05);
+    box-shadow: inset 0 0 10px rgba(0, 255, 95, 0.1);
+}
+
+.cashier-body {
+    display: none;
+    padding: 40px; /* Plus d'espace interne */
+}
+
+.cashier-body.active {
+    display: block;
+    animation: fadeInModal 0.4s ease-out;
+}
+
+/* Titres et textes dans la modale */
+.cashier-body h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    font-weight: 800;
+    color: white;
+}
+
+.cashier-body p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Zone d'adresse crypto stylisée */
+.crypto-address-box {
+    background: #070b13;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 20px 0;
+}
+
+.crypto-address-box label {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.copy-input {
+    display: flex;
+    gap: 12px;
+}
+
+.copy-input input {
+    flex: 1;
+    background: transparent !important;
+    border: none !important;
+    color: #00ff5f !important;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 0.9rem !important;
+    padding: 0 !important;
+}
+
+.copy-input button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.copy-input button:hover {
+    background: #00ff5f;
+    color: #003314;
+}
+
+/* Infos de dépôt */
+.deposit-info {
+    background: rgba(0, 231, 1, 0.03);
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #00ff5f;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(0, 255, 95, 0.1);
+}
+
+/* Style des minis boutons crypto dans la modale */
+.coin-item-mini {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #070b13;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.coin-item-mini:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.coin-item-mini.active {
+    border-color: #00ff5f;
+    color: white;
+    background: rgba(0, 255, 95, 0.05);
+}
+
+.coin-item-mini img {
+    filter: grayscale(1);
+    transition: 0.2s;
+}
+
+.coin-item-mini.active img {
+    filter: grayscale(0);
+}
+
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.coin-item-mini-withdraw {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #070b13;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.coin-item-mini-withdraw.active {
+    border-color: #00ff5f;
+    color: white;
+    background: rgba(0, 255, 95, 0.05);
+}
+
+.coin-item-mini-withdraw img {
+    filter: grayscale(1);
+}
+
+.coin-item-mini-withdraw.active img {
+    filter: grayscale(0);
+}
+
+
+
+
+
+
+
+.switch { position: relative; display: inline-block; width: 45px; height: 22px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #00e701; }
+input:checked + .slider:before { transform: translateX(23px); }
+
+
+
+
+
+
+
+
+
+
+
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.info-group { margin-bottom: 20px; }
+.info-group label { display: block; color: #64748b; font-size: 0.8rem; margin-bottom: 5px; }
+.info-group input { 
+    width: 100%; 
+    background: #1a1d23; 
+    border: 1px solid #2d3748; 
+    color: white; 
+    padding: 10px; 
+    border-radius: 6px; 
+}
+
+
+
+
+
+/* --- SECTION JEUX --- */
+.games-section { padding: 60px 8%; }
+
+/* --- TITRE DE SECTION PREMIUM --- */
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c9b238;
+    margin: 0;
+}
+
+/* La petite barre décorative à gauche */
+.section-title .dot {
+    width: 5px;
+    height: 30px;
+    background: #facc15; /* Le jaune de tes boutons */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+}
+
+/* Optionnel : Un petit soulignement progressif */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #facc15, transparent);
+    border-radius: 2px;
+}
+.main-games-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px; }
+.game-card { position: relative; width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; background: var(--bg-card); transition: 0.4s; text-decoration: none; display: block; }
+.game-card img { width: 100%; height: 100%; object-fit: cover; }
+.game-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 11, 19, 0.9) 0%, transparent 100%); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+.game-overlay span { background: var(--accent-neon); color: #003314; padding: 12px 30px; border-radius: 8px; font-weight: 900; }
+.game-card:hover .game-overlay { opacity: 1; }
+
+
+/* Badge LiveCASINO clignotant */
+.live-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ef4444;
+    animation: pulse-live 1.5s infinite;
+}
+
+@keyframes pulse-live {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.game-card:hover .live-badge {
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+
+
+
+
+/* --- ARCADE CARDS STYLE --- */
+
+/* On force le format carré uniquement sur les cartes arcade */
+/* --- ARCADE CARDS OPTIMISÉES POUR IMAGES --- */
+.arcade-card {
+    aspect-ratio: 1 / 1 !important;
+    position: relative;
+    overflow: hidden; /* Important pour que l'image ne dépasse pas des bords arrondis */
+    border-radius: 16px; /* Pour garder le même arrondi que les jeux populaires */
+    background: #070b13;
+}
+
+.arcade-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligne vers le haut */
+    gap: 0; /* On enlève l'espace automatique qui fait déborder */
+    padding: 10px; /* Petit cadre de sécurité */
+    transition: 0.3s;
+}
+
+.arcade-icon {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 0 10px rgba(0, 231, 1, 0.2));
+}
+
+.arcade-label {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #94a3b8; /* Texte plus discret car l'image en dit déjà beaucoup */
+    letter-spacing: 2px;
+}
+
+/* Gradients personnalisés pour le fond des cartes */
+.arcade-bg-1 { background: linear-gradient(135deg, #0f1724 0%, #1e293b 100%) !important; }
+.arcade-bg-2 { background: linear-gradient(135deg, #0f1724 0%, #1a365d 100%) !important; }
+.arcade-bg-3 { background: linear-gradient(135deg, #0f1724 0%, #064e3b 100%) !important; }
+.arcade-bg-4 { background: linear-gradient(135deg, #0f1724 0%, #4c1d95 100%) !important; }
+
+/* Overlay Bientôt */
+.arcade-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 11, 19, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff5f;
+    font-weight: 900;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.arcade-card:hover .arcade-overlay {
+    opacity: 1;
+}
+
+/* Animation de zoom au survol */
+.arcade-card:hover .arcade-game-img {
+    transform: scale(1.1) translateY(-5px);
+    filter: drop-shadow(0 0 25px rgba(0, 231, 1, 0.4));
+}
+
+
+.arcade-game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ou 'cover' si tu veux que l'image remplisse absolument tout sans bordures */
+    transition: transform 0.4s ease;
+}
+
+/* Optionnel : petit effet d'animation au survol */
+.arcade-card:hover .arcade-game-img {
+    transform: scale(1.1);
+}
+
+
+
+footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--glass-border); }
+footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
+
+
+
+
+
+/* --- SCROLLBAR PROFESSIONNELLE NEOSPIN --- */
+
+/* --- SCROLLBAR PREMIUM GOLD --- */
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #facc15 #070b13;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 14px; /* Un peu plus large pour un aspect solide */
+}
+
+::-webkit-scrollbar-track {
+    background: #070b13; /* Fond sombre profond */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* Utilisation du jaune gold de vos boutons */
+    background: #facc15;
+    /* Arrondi maximal pour l'effet "pilule" */
+    border-radius: 20px;
+    /* L'astuce "Pro" : une bordure épaisse de la couleur du fond 
+       crée un espace vide autour du curseur pour qu'il paraisse plus fin et élégant */
+    border: 4px solid #070b13;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #eab308; /* Un jaune légèrement plus sombre au survol */
+}

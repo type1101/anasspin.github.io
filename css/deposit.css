@@ -1,0 +1,183 @@
+:root {
+    --neon-green: #00ff5f;
+    --neon-glow: rgba(0, 255, 95, 0.15);
+    --card-bg: rgba(20, 29, 43, 0.9);
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- RESET & FIXES --- */
+input:focus, button:focus {
+    outline: none !important;
+    border-color: rgba(0, 255, 95, 0.5) !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ultra-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+#Logoclick{
+    text-decoration: none;
+    color: white;
+
+}
+
+/* --- BANNIERE HERO --- */
+.bonus-hero-card {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d1421 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.bonus-glow {
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--neon-glow) 0%, transparent 70%);
+}
+
+.bonus-content-flex {
+    display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;
+}
+
+.bonus-badge-top { color: var(--neon-green); font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; }
+.bonus-text-group h1 { font-size: 2.2rem; margin: 10px 0; }
+.bonus-text-group h1 span { color: var(--neon-green); }
+.bonus-text-group p { color: #94a3b8; max-width: 500px; }
+
+/* --- GRID --- */
+.main-deposit-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 25px;
+}
+
+.deposit-config-card, .deposit-payment-card {
+    background: var(--card-bg); backdrop-filter: blur(20px); border-radius: 20px; padding: 35px; border: 1px solid var(--border-color);
+}
+
+.card-label { font-size: 0.65rem; font-weight: 900; color: #64748b; margin-bottom: 20px; letter-spacing: 1px; }
+
+/* --- SELECTEUR & SIMULATEUR --- */
+.crypto-selector-premium { display: flex; flex-direction: column; gap: 12px; margin-bottom: 35px; }
+
+.coin-item {
+    display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color);
+    padding: 15px 20px; border-radius: 12px; color: #94a3b8; cursor: pointer; transition: 0.3s;
+}
+
+.coin-item.active { border-color: var(--neon-green); background: rgba(0, 255, 95, 0.05); color: #fff; }
+.coin-item img { width: 24px; filter: grayscale(1); }
+.coin-item.active img { filter: grayscale(0); }
+
+.sim-input-box { background: #070b13; border-radius: 10px; display: flex; padding: 15px; margin-bottom: 15px; border: 1px solid transparent; transition: 0.3s; }
+.sim-input-box:focus-within { border-color: var(--neon-green); }
+.sim-input-box input { background: transparent; border: none; color: #fff; flex: 1; font-weight: bold; }
+
+.sim-result { padding: 15px; background: rgba(255,255,255,0.03); border-radius: 10px; }
+.res-line { font-size: 0.85rem; color: #94a3b8; margin-bottom: 5px; }
+.bonus-line strong { color: var(--neon-green); }
+
+/* --- BLOC 3 PAIEMENT (AJUSTÉ) --- */
+.payment-main-flex {
+    display: flex; gap: 50px; align-items: center; margin: 40px 0;
+}
+
+.qr-section-pro { text-align: center; }
+.qr-box-glass { background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 0 40px rgba(0, 255, 95, 0.1); }
+.qr-box-glass i { font-size: 7rem; color: #000; }
+.network-tag-premium { margin-top: 15px; font-size: 0.8rem; color: #64748b; }
+.network-tag-premium span { color: #fff; font-weight: bold; }
+
+.address-section-pro { flex: 1; display: flex; flex-direction: column; gap: 25px; }
+.address-header label { display: block; font-size: 0.7rem; color: #94a3b8; font-weight: 800; margin-bottom: 12px; }
+
+.premium-copy-box { display: flex; background: #070b13; border-radius: 10px; padding: 5px; border: 1px solid var(--border-color); }
+.premium-copy-box input { background: transparent; border: none; color: var(--neon-green); padding: 10px; font-family: monospace; flex: 1; }
+
+#copyBtn { background: var(--neon-green); color: #000; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+#copyBtn:hover { transform: scale(1.05); }
+
+.security-badges-row { display: flex; gap: 15px; }
+.sec-item-v6 { font-size: 0.7rem; color: var(--neon-green); background: rgba(0, 255, 95, 0.05); padding: 8px 15px; border-radius: 6px; font-weight: 700; border: 1px solid rgba(0, 255, 95, 0.1); }
+
+.danger-notice-v6 { padding: 20px; background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.1); border-radius: 12px; color: #f87171; font-size: 0.75rem; line-height: 1.4; }
+
+.center-footer { text-align: center; margin-top: 40px; }
+.btn-back-lobby { color: #64748b; text-decoration: none; font-size: 0.9rem; }
+
+
+.confirmation-zone {
+    margin-top: 25px;
+}
+
+.btn-confirm-main {
+    width: 100%;
+    background: var(--neon-green);
+    color: #003314;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--neon-glow);
+}
+
+.btn-confirm-main:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px var(--neon-glow);
+}
+
+.status-box {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    animation: fadeIn 0.5s ease;
+}
+
+.spinner {
+    width: 35px;
+    height: 35px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: var(--neon-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+.status-text { color: #fff; font-weight: 600; margin-bottom: 5px; }
+.status-subtext { color: #64748b; font-size: 0.8rem; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+
+.qr-box-glass {
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 0 40px rgba(0, 255, 95, 0.2);
+}
+
+#qrcode-container img {
+    margin: 0 auto;
+    /* Assure que l'image générée ne dépasse pas */
+    max-width: 100%;
+    height: auto;
+}

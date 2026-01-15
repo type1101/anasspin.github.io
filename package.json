@@ -1,0 +1,20 @@
+{
+  "name": "yazenspin-main",
+  "version": "1.0.0",
+  "description": "Salut tout le monde, voici le casino qui va nous faire brasséeeeeeeeeeee peut etre <3!!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongodb": "^7.0.0"
+  }
+}

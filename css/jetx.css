@@ -1,0 +1,130 @@
+/* Container principal du jeu JetX */
+.jetx-game-card {
+    background: #0a0e19; /* Fond très sombre */
+    border: 1px solid #1f2937;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 500px; /* Plus large pour le graphique */
+    margin: 40px auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* Header du JetX */
+.jetx-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #cbd5e1;
+}
+
+.jetx-header h3 span {
+    color: #facc15; /* Jaune NeoSpin */
+}
+
+.jetx-info {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #94a3b8;
+}
+
+.jetx-multiplier {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #22c55e; /* Vert éclatant */
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+}
+
+/* Zone du graphique */
+.jetx-graph {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to top right, #1a2235, #0f172a);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Centrer le jet */
+    align-items: center;
+    justify-content: center;
+}
+
+.jetx-jet {
+    font-size: 3rem;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    transform: rotate(-45deg); /* Position initiale */
+    transition: transform 0.5s ease-out; /* Animation douce */
+}
+
+/* Contrôles JetX */
+.jetx-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.jetx-input {
+    width: 80px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.jetx-btn {
+    flex-grow: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.jetx-btn.start {
+    background: linear-gradient(135deg, #facc15, #eab308); /* Jaune pour le pari */
+    color: #333;
+}
+.jetx-btn.start:hover:not(:disabled) { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
+
+.jetx-btn.cashout {
+    background: linear-gradient(135deg, #22c55e, #16a34a); /* Vert pour encaisser */
+    color: white;
+}
+.jetx-btn.cashout:hover:not(:disabled) { box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); }
+
+.jetx-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.jetx-message {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #cbd5e1;
+    min-height: 20px;
+}
+
+/* Animations du jet */
+@keyframes fly {
+    from { transform: translate(0, 0) rotate(-45deg); opacity: 0.8; }
+    to { transform: translate(calc(100% - 20px), calc(-100% + 20px)) rotate(-45deg); opacity: 1; }
+}
+.flying {
+    animation: fly var(--animation-duration, 5s) linear forwards;
+}
+
+.crashed {
+    animation: crash 0.3s ease-out forwards;
+}
+@keyframes crash {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}

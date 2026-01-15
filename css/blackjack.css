@@ -1,0 +1,140 @@
+body.game-page {
+    /* Supprime le background-image d'ici ! */
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.blackjack-area {
+    background: #0f212e !important;
+    flex-direction: column;
+}
+
+.table-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+}
+
+.hand {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    min-height: 140px;
+    margin: 20px 0;
+}
+
+.label-pro {
+    color: #b1bad3;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Style des Cartes NeoSpin */
+.card-pro {
+    width: 90px;
+    height: 130px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    color: #1a1d23;
+    font-weight: 900;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: dealAnim 0.4s ease-out;
+}
+
+.card-pro.red { color: #ef4444; }
+.card-pro .symbol { font-size: 1.8rem; align-self: center; }
+
+.card-pro.hidden-card {
+    background: #2f4553;
+    border: 2px solid #557086;
+    color: transparent;
+}
+
+@keyframes dealAnim {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* Contour vert pour la victoire */
+.card-pro.winner-glow {
+    border: 2px solid #00e701;
+    box-shadow: 0 0 15px rgba(0, 231, 1, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Contour rouge pour la défaite */
+.card-pro.loser-glow {
+    border: 2px solid #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* --- BADGES DE RÉSULTAT PRO --- */
+#gameStatus {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 900;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Animation de pop pour le résultat */
+.status-pop {
+    animation: statusAnim 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes statusAnim {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Couleurs spécifiques avec éclat néon */
+.status-win {
+    color: #00e701 !important;
+    text-shadow: 0 0 20px rgba(0, 231, 1, 0.4);
+}
+
+.status-loss {
+    color: #ef4444 !important;
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.status-push {
+    color: #94a3b8 !important;
+    text-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
+}
+
+
+.score-badge-pro {
+    background: #2f4553;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    vertical-align: middle;
+}
