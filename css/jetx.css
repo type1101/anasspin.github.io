@@ -1,130 +1,123 @@
-/* Container principal du jeu JetX */
-.jetx-game-card {
-    background: #0a0e19; /* Fond très sombre */
-    border: 1px solid #1f2937;
-    padding: 25px;
-    border-radius: 20px;
-    max-width: 500px; /* Plus large pour le graphique */
-    margin: 40px auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    text-align: center;
+/* ==========================================================================
+   NEO SPIN - CRASH MINIMALISTE (DESIGN STAKE)
+   ========================================================================== */
+
+:root {
+    --bg-chart: #071620;
+    --accent-neon: #00ff5f;
+    --crash-red: #ef4444;
+    --border-ui: #2f4553;
 }
 
-/* Header du JetX */
+/* --- CONTAINER PRINCIPAL --- */
+.jetx-game-card {
+    background: #0f212e; /* Bleu-gris profond style Stake */
+    padding: 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+}
+
 .jetx-header h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: #cbd5e1;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 .jetx-header h3 span {
-    color: #facc15; /* Jaune NeoSpin */
+    color: var(--accent-neon);
 }
 
-.jetx-info {
-    font-size: 1.2rem;
+/* --- ZONE DU GRAPHIQUE (LE CADRE) --- */
+/* --- NEO CRASH : DESIGN PREMIUM MINIMALISTE --- */
+.jetx-game-card.minimalist {
+    background: #0f1724; /* Bleu nuit profond */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.jetx-graph {
+    position: relative;
+    height: 450px;
+    background: radial-gradient(circle at center, #0f1724 0%, #070b13 100%);
+    border-bottom: 2px solid #2f4553;
+    border-left: 2px solid #2f4553;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     margin-bottom: 20px;
-    color: #94a3b8;
+}
+
+/* Grille dynamique avec effet de profondeur */
+.jetx-graph::after {
+    content: "";
+    position: absolute;
+    inset: -100px;
+    background-image: 
+        linear-gradient(rgba(47, 69, 83, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47, 69, 83, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    transform: perspective(500px) rotateX(20deg);
 }
 
 .jetx-multiplier {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #22c55e; /* Vert éclatant */
-    text-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+    font-size: 5.5rem;
+    z-index: 10;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Zone du graphique */
-.jetx-graph {
-    width: 100%;
-    height: 250px;
-    background: linear-gradient(to top right, #1a2235, #0f172a);
-    border-radius: 10px;
-    margin-bottom: 25px;
-    position: relative;
-    overflow: hidden;
-    display: flex; /* Centrer le jet */
-    align-items: center;
-    justify-content: center;
-}
+/* États du multiplicateur */
+.jetx-multiplier.win { color: #facc15; text-shadow: 0 0 40px rgba(250, 204, 21, 0.6); transform: scale(1.1); }
+.jetx-multiplier.crash { color: #ef4444; text-shadow: 0 0 40px rgba(239, 68, 68, 0.6); }
 
-.jetx-jet {
-    font-size: 3rem;
+#crashCanvas {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    transform: rotate(-45deg); /* Position initiale */
-    transition: transform 0.5s ease-out; /* Animation douce */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
 }
 
-/* Contrôles JetX */
-.jetx-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-
-.jetx-input {
-    width: 80px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #334155;
-    background: #0f172a;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-}
-
-.jetx-btn {
-    flex-grow: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.jetx-btn.start {
-    background: linear-gradient(135deg, #facc15, #eab308); /* Jaune pour le pari */
-    color: #333;
-}
-.jetx-btn.start:hover:not(:disabled) { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
-
-.jetx-btn.cashout {
-    background: linear-gradient(135deg, #22c55e, #16a34a); /* Vert pour encaisser */
-    color: white;
-}
-.jetx-btn.cashout:hover:not(:disabled) { box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); }
-
-.jetx-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
+/* --- ÉTAT DES MESSAGES --- */
 .jetx-message {
     margin-top: 15px;
     font-weight: 600;
-    color: #cbd5e1;
-    min-height: 20px;
+    color: #94a3b8;
+    min-height: 24px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
 }
 
-/* Animations du jet */
-@keyframes fly {
-    from { transform: translate(0, 0) rotate(-45deg); opacity: 0.8; }
-    to { transform: translate(calc(100% - 20px), calc(-100% + 20px)) rotate(-45deg); opacity: 1; }
-}
-.flying {
-    animation: fly var(--animation-duration, 5s) linear forwards;
+/* --- BOUTON CASHOUT (STYLE STAKE) --- */
+.main-bet-btn#cashoutBtnCrash {
+    background: var(--accent-neon) !important;
+    box-shadow: 0 4px 0 #16a34a !important;
+    color: #003314 !important;
+    font-weight: 900;
 }
 
-.crashed {
-    animation: crash 0.3s ease-out forwards;
+.main-bet-btn#cashoutBtnCrash span {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.8;
 }
-@keyframes crash {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0); opacity: 0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jetx-multiplier { font-size: 3rem; }
+    .jetx-graph { height: 300px; }
 }

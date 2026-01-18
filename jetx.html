@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoSpin | Crash Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mines.css">
+    <link rel="stylesheet" href="css/jetx.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="game-page">
+    <div id="notification-container" style="position: fixed; top: 80px; left: 20px; z-index: 10000; pointer-events: none;"></div>
+
+    <header class="game-header-pro">
+        <div class="logo">NEO<span>SPIN</span></div>
+        <div class="wallet-display">
+            <span class="wallet-label">BALANCE</span>
+            <div class="balance-container">
+                <span id="userBalance">0.00</span><span class="currency-symbol">€</span>
+            </div>
+        </div>
+        <a href="index.html" class="btn-back-home">Accueil</a>
+    </header>
+
+    <main class="game-view-centered">
+        <div class="stake-card-master">
+            <aside class="side-panel-pro">
+                <div class="control-group">
+                    <label>Montant du pari</label>
+                    <div class="input-wrapper-stake">
+                        <input type="number" id="betAmountInput" value="1.00" step="0.01">
+                        <div class="addon-btns">
+                            <button onclick="adjustBet(0.5)">½</button>
+                            <button onclick="adjustBet(2)">2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Auto Cashout</label>
+                    <div class="input-wrapper-stake">
+                        <input type="number" id="autoCashoutInput" placeholder="Infinity" step="0.1">
+                    </div>
+                </div>
+
+                <button id="playBtnCrash" class="main-bet-btn">Parier</button>
+                <button id="cashoutBtnCrash" class="main-bet-btn" style="display:none; background:#22c55e; color:white; box-shadow: 0 4px 0 #16a34a;">ENCAISSER</button>
+                
+                <p id="jetxStatus" style="text-align:center; margin-top:15px;"></p>
+            </aside>
+
+            <section class="grid-viewport" style="display: block; padding: 20px;">
+                <div class="jetx-game-card minimalist">
+                    <div class="jetx-header">
+                        <h3>NEO<span>CRASH</span></h3>
+                    </div>
+                    
+                    <div class="jetx-graph" id="graphArea">
+                        <div id="multiplierDisplay" class="jetx-multiplier">1.00x</div>
+                        <canvas id="crashCanvas"></canvas>
+                    </div>
+
+                    <div class="jetx-message" id="gameMsg">En attente d'un pari...</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="window.location.href='index.html'">&times;</span>
+            <div class="modal-header">
+                <h2>SE <span>CONNECTER</span></h2>
+                <p>Connectez-vous pour jouer.</p>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-signup-submit">CONNEXION</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/jetx.js"></script>
+</body>
+</html>
