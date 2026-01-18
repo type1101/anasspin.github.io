@@ -16,15 +16,14 @@ app.use(express.static(__dirname));
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 
-const WALLET_CONFIG = {
-    btc: { addr: "TON_ADRESSE_BITCOIN", net: "Bitcoin" },
-    eth: { addr: "TON_ADRESSE_ETH", net: "Ethereum (ERC20)" },
-    usdt: { addr: "TON_ADRESSE_USDT", net: "Tether (TRC20)" }
-};
-
 //une route pour récupérer la config en toute sécurité ehehhe
+// Dans server.js, remplace ta route /api/config/wallets par celle-ci :
 app.get('/api/config/wallets', (req, res) => {
-    res.json(WALLET_CONFIG);
+    res.json({
+        btc: { addr: process.env.BTC_ADDR, net: "Bitcoin" },
+        eth: { addr: process.env.ETH_ADDR, net: "Ethereum (ERC20)" },
+        usdt: { addr: process.env.USDT_ADDR, net: "Tether (TRC20)" }
+    });
 });
 
 async function startServer() {
@@ -211,7 +210,17 @@ async function startServer() {
     }
 }
 
-
+// Route Proxy pour les prix (évite que l'utilisateur contacte Binance directement)
+app.get('/api/prices', async (req, res) => {
+    try {
+        const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+        const response = await fetch('https://api.binance.com/api/v3/ticker/price');
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: "Impossible de récupérer les cours" });
+    }
+});
 
 
 
