@@ -752,6 +752,18 @@ function updateLiveCounters() {
     });
 }
 
+
+function scrollArcade(direction) {
+    const slider = document.getElementById('arcadeSlider');
+    // On calcule la largeur d'une carte + le gap pour un défilement précis
+    const scrollAmount = 260; 
+    
+    slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
 // Mise à jour toutes les 5 secondes
 setInterval(updateLiveCounters, 5000);
 

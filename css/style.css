@@ -1003,6 +1003,57 @@ input:checked + .slider:before { transform: translateX(23px); }
     transform: scale(1.1);
 }
 
+/* Force l'alignement sur une ligne */
+.arcade-slider {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Empêche le retour à la ligne */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 0;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Masque la barre de défilement (Chrome, Safari, Edge) */
+.arcade-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style des cartes pour qu'elles ne rétrécissent pas */
+.arcade-card {
+    flex: 0 0 240px; /* Ajustez 240px selon la largeur souhaitée */
+}
+
+/* Style des flèches de navigation */
+.nav-arrow {
+    position: absolute;
+    background: rgba(0, 231, 1, 0.2);
+    border: 1px solid #00e701;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.nav-arrow:hover {
+    background: #00e701;
+    color: black;
+    box-shadow: 0 0 15px rgba(0, 231, 1, 0.5);
+}
+
+/* Cache les flèches sur mobile car le scroll au doigt est naturel */
+@media (max-width: 768px) {
+    .nav-arrow { display: none; }
+}
+
 
 
 footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--glass-border); }

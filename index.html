@@ -99,6 +99,61 @@
           <div class="game-overlay"><span>JOUER</span></div>
         </a>
 
+        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/rouletteclean.png" alt="Rouletteauto Game" />
+          <div class="game-info">
+              <span class="game-title">Hi-Lo</span>
+              <span class="game-provider">SynthBet Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/keno.png" alt="Keno Game" />
+          <div class="game-info">
+              <span class="game-title">Keno</span>
+              <span class="game-provider">SynthBet Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+
+        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/plinkoauto.png" alt="Plinko Game" />
+          <div class="game-info">
+              <span class="game-title">Plinko</span>
+              <span class="game-provider">SynthBet Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/diceauto.png" alt="dice Game" />
+          <div class="game-info">
+              <span class="game-title">Dice</span>
+              <span class="game-provider">SynthBet Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/baccaratauto.png" alt="baccarat Game" />
+          <div class="game-info">
+              <span class="game-title">Baccarat</span>
+              <span class="game-provider">SynthBet Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
+        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+          <img src="img/JeuxPopulaires/plinkoauto.png" alt="plinkoauto Game" />
+          <div class="game-info">
+              <span class="game-title">Plinko</span>
+              <span class="game-provider">SynthBet Original</span>
+            </div>
+          <div class="game-overlay"><span>JOUER</span></div>
+        </a>
+
     </section>
 
 
@@ -155,40 +210,51 @@
         <p style="color: #b1bad3; font-size: 0.9rem; margin-top: 10px;">Machines instantanées et mini-jeux originaux</p>
       </div>
 
-      <div class="main-games-layout">
-        
-        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
-          <img src="img/jeuxarcades/Slots1.png" alt="Slots Arcade" class="arcade-game-img">
-          <div class="arcade-overlay">Jouer à Slots Arcade</div>
-        </a>
+      <div class="slider-container" style="position: relative; display: flex; align-items: center;">
+    
+        <button class="nav-arrow prev" onclick="scrollArcade(-1)" style="left: -57px;">
+          <i class="fas fa-chevron-left"></i>
+        </button>
 
-        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
-          <img src="img/jeuxarcades/DICEarcade.png" alt="Dice Arcade" class="arcade-game-img">
-          <div class="arcade-overlay">Jouer à Dice Arcade</div>
-        </a>
+        <div class="main-games-layout arcade-slider" id="arcadeSlider">
+          
+          <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+            <img src="img/jeuxarcades/Slots1.png" alt="Slots Arcade" class="arcade-game-img">
+            <div class="arcade-overlay">Jouer à Slots Arcade</div>
+          </a>
 
-        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
-          <img src="img/jeuxarcades/PlinkoArcade.png" alt="Plinko Arcade" class="arcade-game-img">
-          <div class="arcade-overlay">Jouer à Plinko Arcade</div>
-        </a>
+          <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+            <img src="img/jeuxarcades/DICEarcade.png" alt="Dice Arcade" class="arcade-game-img">
+            <div class="arcade-overlay">Jouer à Dice Arcade</div>
+          </a>
 
-        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
-          <img src="img/jeuxarcades/LimboArcade.png" alt="Limbo Arcade" class="arcade-game-img">
-          <div class="arcade-overlay">Jouer à Limbo Arcade</div>
-        </a>
+          <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+            <img src="img/jeuxarcades/PlinkoArcade.png" alt="Plinko Arcade" class="arcade-game-img">
+            <div class="arcade-overlay">Jouer à Plinko Arcade</div>
+          </a>
 
-        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
-          <img src="img/jeuxarcades/KenoArcade.png" alt="Keno Arcade" class="arcade-game-img">
-          <div class="arcade-overlay">Jouer à Keno Arcade</div>
-        </a>
+          <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+            <img src="img/jeuxarcades/LimboArcade.png" alt="Limbo Arcade" class="arcade-game-img">
+            <div class="arcade-overlay">Jouer à Limbo Arcade</div>
+          </a>
 
-        <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
-          <img src="img/jeuxarcades/RouletteArcade.png" alt="Roulette Arcade" class="arcade-game-img">
-          <div class="arcade-overlay">Jouer à Roulette Arcade</div>
-        </a>
+          <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+            <img src="img/jeuxarcades/KenoArcade.png" alt="Keno Arcade" class="arcade-game-img">
+            <div class="arcade-overlay">Jouer à Keno Arcade</div>
+          </a>
+
+          <a href="?action=login" class="game-card arcade-card" onclick="checkAuth(event)">
+            <img src="img/jeuxarcades/RouletteArcade.png" alt="Roulette Arcade" class="arcade-game-img">
+            <div class="arcade-overlay">Jouer à Roulette Arcade</div>
+          </a>
 
 
 
+        </div>
+      
+        <button class="nav-arrow next" onclick="scrollArcade(1)" style="right: -57px;">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </section>
 
