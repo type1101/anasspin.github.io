@@ -259,3 +259,20 @@ input[type=number] {
     margin-top: 10px;
     min-height: 24px;
 }
+
+
+@media (max-width: 850px) {
+    .stake-card-master {
+        grid-template-columns: 1fr; /* Sidebar au-dessus de la grille */
+    }
+
+    .side-panel-pro {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    
+    .mines-grid-premium {
+        max-width: 100%;
+        gap: 8px;
+    }
+}

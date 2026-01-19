@@ -242,10 +242,10 @@ nav a:hover { color: var(--accent-neon); }
 
 .modal-content {
     background: var(--bg-card);
-    width: 90%;
-    max-width: 450px;
-    padding: 15px; /* On met le padding à 0 pour laisser le header gérer ses espaces */
-    border-radius: 20px;
+    width: 95%;
+    max-width: 400px; /* Réduit de 450px à 400px */
+    padding: 0; 
+    border-radius: 16px; /* Légèrement moins arrondi pour un look plus compact */
     border: 1px solid var(--glass-border);
     position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
@@ -256,16 +256,16 @@ nav a:hover { color: var(--accent-neon); }
 /* --- HEADER DU MENU D'INSCRIPTION AMÉLIORÉ --- */
 .modal-header {
     text-align: center;
-    padding: 30px 40px 20px 40px; /* Plus d'espace en haut */
-    border-bottom: 1px solid var(--glass-border); /* Ligne de séparation propre */
-    margin-bottom: 25px;
+    padding: 20px 30px 15px 30px; /* Réduction drastique des paddings */
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 15px; /* Réduit de 25px à 15px */
 }
 
 .modal-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: 0.5px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     color: #ffffff;
 }
 
@@ -282,7 +282,7 @@ nav a:hover { color: var(--accent-neon); }
 
 /* On ajoute du padding au formulaire pour compenser le retrait du padding du modal-content */
 #signupForm {
-    padding: 0 40px 40px 40px;
+    padding: 0 30px 25px 30px; /* Moins d'espace sur les côtés et en bas */
 }
 
 @keyframes modalFadeIn {
@@ -306,8 +306,8 @@ nav a:hover { color: var(--accent-neon); }
     color: #ef4444; /* Rouge au survol pour plus de clarté */
 }
 
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; color: white; font-size: 0.85rem; margin-bottom: 8px; font-weight: 600; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; color: white; font-size: 0.8rem; margin-bottom: 6px; font-weight: 600; }
 .form-group input, .form-group select {
     width: 100%;
     padding: 12px 15px;
@@ -1084,7 +1084,9 @@ footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--glass
 footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
 */
 
-
+.badge-promo{
+    margin-bottom: 22px;
+}
 
 .main-footer {
     background: rgba(13, 18, 28, 0.95);
@@ -1193,6 +1195,124 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
     font-weight: bold;
     font-family: Arial, sans-serif;
 }
+@media (max-width: 768px) {
+    /* Header : on réduit l'espace */
+    header {
+        padding: 10px 4%;
+    }
+    
+    nav {
+        display: none; /* Cache la nav textuelle pour un futur menu burger ou focus auth */
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    /* Hero Banner : On réduit les textes géants */
+    .hero-banner {
+        height: auto;
+        padding: 80px 5% 40px 5%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .offer-amount {
+        font-size: 2.8rem;
+    }
+
+    .btn-cta {
+        width: 100%;
+        padding: 15px;
+        margin-top: 30px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 1.4rem;
+    }
+
+    /* On réduit la taille des cartes pour en voir plus à l'écran */
+    .populaires-slider .game-card {
+        flex: 0 0 160px; /* Cartes plus petites */
+    }
+
+    .arcade-card {
+        flex: 0 0 180px;
+    }
+
+    /* On cache les flèches car le scroll au doigt est prioritaire sur mobile */
+    .nav-arrow {
+        display: none !important;
+    }
+
+    /* Grille Live Casino : on passe de 3-4 colonnes à 2 */
+    .main-games-layout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 90%;
+        max-height: 90vh; /* Sécurité pour les petits écrans */
+        overflow-y: auto;
+    }
+
+    .modal-header {
+        padding: 15px 20px 10px 20px;
+    }
+
+    #signupForm {
+        padding: 0 20px 20px 20px;
+    }
+
+    .auth-buttons {
+        gap: 6px !important;
+    }
+
+    .btn-login, .btn-signup {
+        padding: 5px 10px !important; /* Moins de hauteur et de largeur */
+        font-size: 0.7rem !important;    /* Texte plus petit */
+        border-radius: 4px !important;   /* Arrondi plus discret */
+        min-width: auto !important;      /* Empêche une largeur minimale imposée */
+    }
+
+
+    .form-group {
+        margin-bottom: 10px;
+        padding: 11px;
+    }
+
+
+
+
+    /* Account Modal : On passe la sidebar en haut */
+    .account-layout {
+        flex-direction: column;
+    }
+
+    .account-sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px;
+    }
+
+    .account-body {
+        padding: 20px;
+    }
+}
+
+
 
 /* Responsivité pour mobile */
 @media (max-width: 900px) {
