@@ -589,7 +589,7 @@ function openAccountModal(tabId = 'profile-tab') {
             dateField.innerText = `Membre depuis le ${formattedDate}`;
         } else {
             // Sécurité si la date est absente pour un vieux compte
-            dateField.innerText = "Membre NeoSpin";
+            dateField.innerText = "Membre SynthBet";
         }
     }
 
