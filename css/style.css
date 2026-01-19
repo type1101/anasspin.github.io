@@ -9,6 +9,9 @@
 }
 
 html {
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
     scroll-behavior: smooth;
 }
 
@@ -23,6 +26,9 @@ section {
 }
 
 body {
+
+    max-width: 100vw;
+    position: relative;
     font-family: 'Poppins', sans-serif;
     color: white;
     overflow-x: hidden;
@@ -218,6 +224,13 @@ nav a:hover { color: var(--accent-neon); }
     background: #1a2c38;
     color: white;
     padding-left: 25px; /* Petit effet de glissement pro */
+}
+
+
+#JeuxPopulaires {
+    background: transparent !important; /* Ou var(--bg-deep) selon votre choix */
+    overflow: hidden; /* Empêche le contenu de déborder sur les côtés */
+    width: 100%;
 }
 
 /* Pour que l'avatar soit un carré légèrement arrondi (style Stake) */
@@ -1197,12 +1210,21 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
 }
 @media (max-width: 768px) {
     /* Header : on réduit l'espace */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* 2. On ajuste le header pour que rien ne dépasse */
     header {
-        padding: 10px 4%;
+        padding: 10px 4% !important;
+        justify-content: space-between;
+        gap: 5px;
     }
     
-    nav {
-        display: none; /* Cache la nav textuelle pour un futur menu burger ou focus auth */
+    header nav {
+        display: none !important;
     }
 
     .logo {
@@ -1228,6 +1250,44 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
         width: 100%;
         padding: 15px;
         margin-top: 30px;
+    }
+
+    .wallet-display {
+        padding: 4px 10px !important;
+        min-width: 100px !important; /* On évite qu'il soit trop large */
+        flex-direction: row !important; /* Balance et Symbole sur la même ligne */
+        gap: 5px;
+    }
+    .wallet-label {
+        display: none; /* On cache le mot "BALANCE" pour gagner de la place */
+    }
+
+    #userBalance {
+        font-size: 0.9rem !important; /* Texte plus petit */
+    }
+
+    /* 5. On s'assure que les boutons d'auth ne poussent pas le reste */
+    .header-auth-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 1; /* Permet au bloc de se réduire si besoin */
+    }
+
+    #JeuxPopulaires {
+        background: #070b13 !important; /* On force le noir spatial uni */
+        margin: 0 !important;
+        padding: 40px 4% !important;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
+    .slider-container {
+        overflow: hidden; /* Verrouille le défilement horizontal au conteneur uniquement */
     }
 }
 
@@ -1310,6 +1370,7 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
     .account-body {
         padding: 20px;
     }
+
 }
 
 
