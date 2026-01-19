@@ -18,13 +18,6 @@ const client = new MongoClient(uri);
 
 //une route pour récupérer la config en toute sécurité ehehhe
 // Dans server.js, remplace ta route /api/config/wallets par celle-ci :
-app.get('/api/config/wallets', (req, res) => {
-    res.json({
-        btc: { addr: process.env.BTC_ADDR, net: "Bitcoin" },
-        eth: { addr: process.env.ETH_ADDR, net: "Ethereum (ERC20)" },
-        usdt: { addr: process.env.USDT_ADDR, net: "Tether (TRC20)" }
-    });
-});
 
 async function startServer() {
     try {
@@ -33,6 +26,15 @@ async function startServer() {
         
         const db = client.db("neospin");
         const users = db.collection("users");
+
+
+        app.get('/api/config/wallets', (req, res) => {
+            res.json({
+                btc: { addr: process.env.BTC_ADDR, net: "Bitcoin" },
+                eth: { addr: process.env.ETH_ADDR, net: "Ethereum (ERC20)" },
+                usdt: { addr: process.env.USDT_ADDR, net: "Tether (TRC20)" }
+            });
+        });
 
         // --- ROUTE D'INSCRIPTION ---
         app.post('/register', async (req, res) => {

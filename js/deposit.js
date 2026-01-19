@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const interval = setInterval(() => {
                     seconds++;
                     const statusText = document.querySelector('.status-text');
-                    if(seconds === 5 && statusText) statusText.innerText = "Transaction détectée... (1/3)";
+                    if(seconds === 5 && statusText) statusText.innerText = "Transaction détectée... (2/3)";
                     if(seconds === 15) {
                         clearInterval(interval);
                         statusBox.innerHTML = `<p style="color:#00e701;">Dépôt de ${amount * 2}€ validé !</p>`;
