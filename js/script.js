@@ -753,6 +753,17 @@ function updateLiveCounters() {
 }
 
 
+function scrollPopulaires(direction) {
+    const slider = document.getElementById('popSlider');
+    // On définit de combien de pixels on défile à chaque clic
+    const scrollAmount = 240; 
+    
+    slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
 function scrollArcade(direction) {
     const slider = document.getElementById('arcadeSlider');
     // On calcule la largeur d'une carte + le gap pour un défilement précis

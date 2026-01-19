@@ -113,7 +113,7 @@ nav a:hover { color: var(--accent-neon); }
 /* --- HERO --- */
 .hero-banner {
     position: relative;
-    height: 650px;
+    height: 565px;
     display: flex;
     align-items: center;
     padding: 0 8%;
@@ -917,6 +917,30 @@ input:checked + .slider:before { transform: translateX(23px); }
 
 
 
+/* Slider pour les Jeux Populaires */
+.populaires-slider {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Force la ligne unique */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 15px 0;
+}
+
+/* Cache la barre de défilement */
+.populaires-slider::-webkit-scrollbar {
+    display: none;
+}
+.populaires-slider {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* On s'assure que les cartes gardent une taille fixe et ne rétrécissent pas */
+.populaires-slider .game-card {
+    flex: 0 0 220px; /* Ajuste cette valeur selon la largeur voulue pour tes cartes */
+}
+
 
 /* --- ARCADE CARDS STYLE --- */
 
@@ -1055,12 +1079,133 @@ input:checked + .slider:before { transform: translateX(23px); }
 }
 
 
-
+/*
 footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--glass-border); }
 footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
+*/
 
 
 
+.main-footer {
+    background: rgba(13, 18, 28, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 8% 20px 8%;
+    margin-top: 50px;
+    color: #b1bad3;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #b1bad3;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-column ul li a:hover {
+    color: #00e701;
+    padding-left: 5px;
+}
+
+.branding p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00e701;
+    transform: translateY(-3px);
+}
+
+.footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 30px 0;
+}
+
+.footer-legal-notice {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.age-badge {
+    display: inline-block;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
+
+.payment-methods {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 20px;
+    opacity: 0.5;
+}
+
+.usdt-icon {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsivité pour mobile */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 /* --- SCROLLBAR PROFESSIONNELLE NEOSPIN --- */

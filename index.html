@@ -62,97 +62,110 @@
         <h2>Jeux Populaires</h2>
       </div>
 
-      <div class="main-games-layout">
-        <a href="mines.html" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/newMINES.jpg" alt="Mines Game" />
-          <div class="game-info">
-            <span class="game-title">Mines</span>
-            <span class="game-provider">SynthBet Original</span>
-          </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+      <div class="slider-container" style="position: relative; display: flex; align-items: center;">
+        <button class="nav-arrow prev" onclick="scrollPopulaires(-1)" style="left: -57px;">
+          <i class="fas fa-chevron-left"></i>
+        </button>
 
-        <a href="jetx.html" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/newCRASH.jpg" alt="JetX Game" />
-          <div class="game-info">
-            <span class="game-title">JetX</span>
-            <span class="game-provider">SynthBet Original</span>
-          </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
-
-        <a href="blackjack.html" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/newBJ.jpg" alt="Blackjack Game" />
-          <div class="game-info">
-              <span class="game-title">Blackjack 21</span>
+        <div class="main-games-layout populaires-slider" id="popSlider">
+          <a href="mines.html" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/newMINES.jpg" alt="Mines Game" />
+            <div class="game-info">
+              <span class="game-title">Mines</span>
               <span class="game-provider">SynthBet Original</span>
             </div>
             <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          </a>
 
-        <a href="hilo.html" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/newHILO.jpg" alt="Hi-Lo Game" />
-          <div class="game-info">
-              <span class="game-title">Hi-Lo</span>
+          <a href="jetx.html" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/newCRASH.jpg" alt="JetX Game" />
+            <div class="game-info">
+              <span class="game-title">JetX</span>
               <span class="game-provider">SynthBet Original</span>
             </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
 
-        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/rouletteclean.png" alt="Rouletteauto Game" />
-          <div class="game-info">
-              <span class="game-title">Hi-Lo</span>
-              <span class="game-provider">SynthBet Original</span>
-            </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          <a href="blackjack.html" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/newBJ.jpg" alt="Blackjack Game" />
+            <div class="game-info">
+                <span class="game-title">Blackjack 21</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+              <div class="game-overlay"><span>JOUER</span></div>
+          </a>
 
-        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/keno.png" alt="Keno Game" />
-          <div class="game-info">
-              <span class="game-title">Keno</span>
-              <span class="game-provider">SynthBet Original</span>
-            </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          <a href="hilo.html" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/newHILO.jpg" alt="Hi-Lo Game" />
+            <div class="game-info">
+                <span class="game-title">Hi-Lo</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
+
+          <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/rouletteclean.png" alt="Rouletteauto Game" />
+            <div class="game-info">
+                <span class="game-title">Hi-Lo</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
+
+          <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/keno.png" alt="Keno Game" />
+            <div class="game-info">
+                <span class="game-title">Keno</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
 
 
-        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/plinkoauto.png" alt="Plinko Game" />
-          <div class="game-info">
-              <span class="game-title">Plinko</span>
-              <span class="game-provider">SynthBet Original</span>
-            </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/plinkoauto.png" alt="Plinko Game" />
+            <div class="game-info">
+                <span class="game-title">Plinko</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
 
-        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/diceauto.png" alt="dice Game" />
-          <div class="game-info">
-              <span class="game-title">Dice</span>
-              <span class="game-provider">SynthBet Original</span>
-            </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/diceauto.png" alt="dice Game" />
+            <div class="game-info">
+                <span class="game-title">Dice</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
 
-        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/baccaratauto.png" alt="baccarat Game" />
-          <div class="game-info">
-              <span class="game-title">Baccarat</span>
-              <span class="game-provider">SynthBet Original</span>
-            </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/baccaratauto.png" alt="baccarat Game" />
+            <div class="game-info">
+                <span class="game-title">Baccarat</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
 
-        <a href="?action=login" class="game-card" onclick="checkAuth(event)">
-          <img src="img/JeuxPopulaires/plinkoauto.png" alt="plinkoauto Game" />
-          <div class="game-info">
-              <span class="game-title">Plinko</span>
-              <span class="game-provider">SynthBet Original</span>
-            </div>
-          <div class="game-overlay"><span>JOUER</span></div>
-        </a>
+          <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+            <img src="img/JeuxPopulaires/plinkoauto.png" alt="plinkoauto Game" />
+            <div class="game-info">
+                <span class="game-title">Plinko</span>
+                <span class="game-provider">SynthBet Original</span>
+              </div>
+            <div class="game-overlay"><span>JOUER</span></div>
+          </a>
+
+
+          <button class="nav-arrow next" onclick="scrollPopulaires(1)" style="right: -57px; top: 136px;">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+        </div>
+      </div>
 
     </section>
 
@@ -193,6 +206,47 @@
                 </div>
                 <div class="game-overlay"><span>REJOINDRE</span></div>
             </a>
+
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/lightningdicelive.png" alt="lightningdice Live">
+                <div class="live-badge"><span class="live-dot"></span> 782 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">DICE VIP</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/crazyslotslive.png" alt="crazyslots Live">
+                <div class="live-badge"><span class="live-dot"></span> 126 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">SLOTS VIP</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/megaball.png" alt="megaball Live">
+                <div class="live-badge"><span class="live-dot"></span> 104 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">MEGABALL VIP</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+
+            <a href="?action=login" class="game-card" onclick="checkAuth(event)">
+                <img src="img/Livecasino/monopolylive.png" alt="monopoly Live">
+                <div class="live-badge"><span class="live-dot"></span> 283 JOUANT</div>
+                <div class="game-info">
+                    <span class="game-title">MONOPOLY VIP</span>
+                    <span class="game-provider">Evolution Live</span>
+                </div>
+                <div class="game-overlay"><span>REJOINDRE</span></div>
+            </a>
+
         </div>
     </section>
 
@@ -664,13 +718,64 @@
       </div>
     </div>
 
-    <footer>
-      <div class="footer-bottom">
-        <p>
-          &copy; 2026 SynthBet Casino - +18 | Jouer comporte des risques :
-          endettement, dépendance...
-        </p>
-      </div>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column branding">
+                <div class="logo">Synth<span>Bet</span></div>
+                <p>L'expérience de jeu ultime avec des mini-jeux originaux et un casino live immersif. Sécurité et équité garanties par la technologie blockchain.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#JeuxPopulaires">Jeux Populaires</a></li>
+                    <li><a href="#LiveCasino">Live Casino</a></li>
+                    <li><a href="#Arcades">Arcade Classics</a></li>
+                    <li><a href="#">Promotions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Légal</h3>
+                <ul>
+                    <li><a href="terms.html">Conditions d'utilisation</a></li>
+                    <li><a href="#">Politique de Confidentialité</a></li>
+                    <li><a href="cookies.html">Politique de Cookies</a></li>
+                    <li><a href="responsable.html">Jeu Responsable</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#">Affiliation</a></li>
+                    <li><a href="#">Vérification d'équité (Provably Fair)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="footer-divider"></div>
+
+        <div class="footer-legal-notice">
+            <div class="age-badge">18+</div>
+            <p>Le jeu peut être addictif et difficile à arrêter. <strong>Jouez de manière responsable.</strong></p>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SynthBet Casino - Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-bitcoin"></i>
+                <i class="fab fa-ethereum"></i>
+                <span class="usdt-icon">₮</span>
+            </div>
+        </div>
     </footer>
 
     <script src="js/script.js"></script>
