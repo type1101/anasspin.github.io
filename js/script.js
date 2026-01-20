@@ -205,19 +205,17 @@ async function handleLogin(e) {
             setTimeout(() => {
                 closeModal('login');
                 
-                // --- LOGIQUE DE REDIRECTION INTELLIGENTE ---
-                // On vérifie si on était sur la page blackjack avec l'ordre de se connecter
+                // On force la mise à jour de l'UI AVANT de recharger/rediriger
+                updateUI(); 
+
                 const urlParams = new URLSearchParams(window.location.search);
                 
+                // Sur mobile, pour forcer le rafraîchissement propre :
                 if (window.location.pathname.includes('blackjack.html')) {
-                    // Si on est déjà sur la page blackjack, on nettoie juste l'URL et on reload
-                    window.location.href = 'blackjack.html';
-                } else if (urlParams.get('action') === 'login') {
-                    // Si on venait d'un lien externe qui demandait le login, on reste ici mais propre
-                    window.location.href = window.location.pathname;
+                    window.location.replace('blackjack.html'); // .replace est plus radical que .href
                 } else {
-                    // Sinon par défaut, on rafraîchit la page actuelle
-                    location.reload();
+                    // Ajout d'un paramètre bidon pour casser le cache au rechargement
+                    window.location.href = window.location.pathname + "?v=" + Date.now();
                 }
             }, 1000);
         } else {
@@ -784,4 +782,17 @@ setInterval(updateLiveCounters, 5000);
 
 
 // --- INITIALISATION AU CHARGEMENT ---
-document.addEventListener('DOMContentLoaded', updateUI);
+function init() {
+    console.log("Initialisation de l'interface...");
+    updateUI();
+}
+
+// On écoute le chargement du DOM ET le chargement complet de la fenêtre
+document.addEventListener('DOMContentLoaded', init);
+window.addEventListener('pageshow', (event) => {
+    // 'pageshow' est crucial pour mobile : il se déclenche même si l'utilisateur 
+    // revient en arrière ou utilise une version cachée de la page.
+    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        updateUI();
+    }
+});
