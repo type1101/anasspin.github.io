@@ -1276,7 +1276,6 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
 
     #JeuxPopulaires {
         background: #070b13 !important; /* On force le noir spatial uni */
-        margin: 0 !important;
         padding: 40px 4% !important;
         width: 100vw;
         position: relative;
@@ -1422,4 +1421,11 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #eab308; /* Un jaune légèrement plus sombre au survol */
+}
+
+/* Empêche le zoom auto sur iOS sans bloquer l'accessibilité */
+.modal input, 
+.modal textarea, 
+.modal select {
+    font-size: 16px !important;
 }
