@@ -215,7 +215,7 @@ async function handleLogin(e) {
                     window.location.replace('blackjack.html'); // .replace est plus radical que .href
                 } else {
                     // Ajout d'un paramètre bidon pour casser le cache au rechargement
-                    window.location.href = window.location.pathname + "?v=" + Date.now();
+                    window.location.href = "index.html?login=success&t=" + new Date().getTime();
                 }
             }, 1000);
         } else {
