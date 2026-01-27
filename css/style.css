@@ -257,7 +257,7 @@ nav a:hover { color: var(--accent-neon); }
     background: var(--bg-card);
     width: 95%;
     max-width: 400px; /* Réduit de 450px à 400px */
-    padding: 0; 
+    padding: 20px; 
     border-radius: 16px; /* Légèrement moins arrondi pour un look plus compact */
     border: 1px solid var(--glass-border);
     position: relative;
@@ -1324,6 +1324,7 @@ footer p { font-size: 0.8rem; color: var(--text-silver); opacity: 0.6; }
         max-width: 90%;
         max-height: 90vh; /* Sécurité pour les petits écrans */
         overflow-y: auto;
+        padding: 0px;
     }
 
     .modal-header {
